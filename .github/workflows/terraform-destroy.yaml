@@ -1,0 +1,62 @@
+name: Terraform Destroy
+
+on: 
+  workflow_dispatch:
+    inputs:
+      wait-time:
+        description: 'Time to wait between plan and destroy: 30s, 5m, 1h'
+        required: true
+        default: '2m'
+
+jobs:
+  terraform:
+    runs-on: ubuntu-20.04
+    steps:
+
+      - name: Install Terraform and Stuff
+        run: |
+          cd ~
+          sudo apt update
+          sudo apt install -y unzip wget
+          sudo wget https://releases.hashicorp.com/terraform/1.0.8/terraform_1.0.8_linux_amd64.zip
+          sudo unzip terraform_1.0.8_linux_amd64.zip
+          sudo chmod +x terraform
+          terraform --version
+
+      - name: Checkout Respository
+        uses: actions/checkout@v2
+        with:
+          ref: main
+          path: ./repository-files/
+
+      - name: Terraform Init
+        env:
+          AWS_ACCESS_KEY_ID:     "${{ secrets.ACCESS_KEY }}"
+          AWS_SECRET_ACCESS_KEY: "${{ secrets.SECRET_KEY }}" 
+          AWS_SESSION_TOKEN:     "${{ secrets.ACCESS_TOKEN }}"
+        run: cd ./repository-files/ && ls -la && ~/terraform init 
+
+      - name: Terraform Plan
+        env:
+          AWS_ACCESS_KEY_ID:     "${{ secrets.ACCESS_KEY }}"
+          AWS_SECRET_ACCESS_KEY: "${{ secrets.SECRET_KEY }}" 
+          AWS_SESSION_TOKEN:     "${{ secrets.ACCESS_TOKEN }}"
+        run: cd ./repository-files/ && ~/terraform plan -destroy 
+
+      - name: Wait Before Apply
+        run:  sleep  "${{ github.event.inputs.wait-time }}" || sleep "2m"
+
+      - name: Terraform Destroy
+        env:
+          AWS_ACCESS_KEY_ID:     "${{ secrets.ACCESS_KEY }}"
+          AWS_SECRET_ACCESS_KEY: "${{ secrets.SECRET_KEY }}" 
+          AWS_SESSION_TOKEN:     "${{ secrets.ACCESS_TOKEN }}"
+        run: cd ./repository-files/ &&  ~/terraform apply -destroy -auto-approve 
+
+      - name: Saving Backend TFState
+        uses: actions-js/push@master
+        with:
+          github_token: ${{ secrets.PERSONAL_GITHUB_TOKEN }}
+          directory: ./repository-files/
+          message: Update backend.tfstate
+          branch: main
