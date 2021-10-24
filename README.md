@@ -65,3 +65,13 @@ ELASTIC IP
 aws ec2  describe-addresses
 aws ec2 release-address --allocation-id <ALLOCATION-ID>
 ```
+###Vídeos
+Se você quer ver uma explicação (em português) do que está nesse repositório acesse:
+Links para as outras partes:
+Parte1: https://youtu.be/HPymDoN1-iM
+Parte2: https://youtu.be/mucL88O4r7U
+Parte3: https://youtu.be/aIlJMsZ5PzE
+Parte4: https://youtu.be/bT8nX9cMC1I
+Parte5: https://youtu.be/K1439ufU_ek
+Parte6: https://youtu.be/9xJ4F0kk0lg
+Parte7: https://youtu.be/zBbFJsXdqj8
