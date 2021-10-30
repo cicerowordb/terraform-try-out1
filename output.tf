@@ -19,10 +19,13 @@ output "aws_iam_role_policy_info" {
 }
 
 output "aws_s3_bucket_info" {
-  value       = aws_s3_bucket.bucket_html.arn
+  value       = var.resource_or_module_bucket == "resource" ? aws_s3_bucket.bucket_html[0].arn : null
   description = "Bucket ARN"
 }
 
+output "aws_s3_module_info" {
+  value       = var.resource_or_module_bucket == "module" ? module.s3_bucket[0] : null
+}
 output "aws_instance_arn_info" {
   value       = aws_instance.debian01.arn
   description = "Instance ARN"

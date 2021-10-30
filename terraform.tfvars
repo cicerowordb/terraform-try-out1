@@ -6,3 +6,4 @@ sec_group_ids = ["sg-ee6a9fff"]
 subnet_id = "subnet-10cfe376"
 ec2_instance = ["t2.micro","t2.small","t2.medium"]
 bucket_name = "bucket-s3-with-html-files-to-deploy"
+resource_or_module_bucket = "module"

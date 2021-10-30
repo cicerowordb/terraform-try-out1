@@ -77,7 +77,15 @@ resource "aws_instance" "debian01" {
 
 ### AWS S3 Bucket is the bucket itself
 resource "aws_s3_bucket" "bucket_html" {
+  count = var.resource_or_module_bucket == "resource" ? 1 : 0
   bucket        = var.bucket_name
   acl           = "private"
   force_destroy =  true
+}
+### Or use templates in ./s3-templates
+module "s3_bucket" {
+  count = var.resource_or_module_bucket == "module" ? 1 : 0
+  # Use one of these only, they use same bucket name
+  #source = "./s3-templates/public-website"
+  source = "./s3-templates/version-lifecycle"
 }

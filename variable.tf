@@ -15,7 +15,7 @@ variable "sec_group_ids" {
     description = "using my default sec group"
 }
 variable "subnet_id" {
-    default = "subnet-10cfe376"
+    default     = "subnet-10cfe376"
     description = "check your own subnet"
 }
 variable "ec2_instance" {
@@ -23,4 +23,8 @@ variable "ec2_instance" {
 }
 variable "bucket_name" {
     default = "bucket-s3-with-html-files-to-deploy"
+}
+variable "resource_or_module_bucket" {
+    default     = "resource"
+    description = "fill with resource or module to create bucket"
 }
