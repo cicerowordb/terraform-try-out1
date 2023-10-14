@@ -8,7 +8,7 @@ provider "aws" {
 
 ### RDS Instance for Database
 resource "aws_db_instance" "rds_db_instance" {
-  name                    = var.database_name
+  # name                    = var.database_name
   allocated_storage       = var.database_storage[0]
   max_allocated_storage   = var.database_storage[1]
   engine                  = "mysql"
