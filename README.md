@@ -71,10 +71,10 @@ Se você quer ver uma explicação (em português) do que está nesse repositór
 
 Links para as outras partes:
 
-* Parte1: https://youtu.be/HPymDoN1-iM
-* Parte2: https://youtu.be/mucL88O4r7U
-* Parte3: https://youtu.be/aIlJMsZ5PzE
-* Parte4: https://youtu.be/bT8nX9cMC1I
-* Parte5: https://youtu.be/K1439ufU_ek
-* Parte6: https://youtu.be/9xJ4F0kk0lg
-* Parte7: https://youtu.be/zBbFJsXdqj8
+* Parte1: https://www.youtube.com/watch?v=w9VHiifER_8
+* Parte2: https://www.youtube.com/watch?v=idwZzWiqI3Q
+* Parte3: https://www.youtube.com/watch?v=jDcJGsqZvzk
+* Parte4: https://www.youtube.com/watch?v=V2FYuf0bDek
+* Parte5: https://www.youtube.com/watch?v=pgp5K4ylPjU
+* Parte6: https://www.youtube.com/watch?v=LnnIAtspKyE
+* Parte7: https://www.youtube.com/watch?v=FDXcU7PUojY
