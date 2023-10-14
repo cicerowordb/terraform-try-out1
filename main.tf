@@ -88,7 +88,7 @@ resource "aws_instance" "debian01" {
 resource "aws_s3_bucket" "bucket_html" {
   count = var.resource_or_module_bucket == "resource" ? 1 : 0
   bucket        = var.bucket_name
-  acl           = "private"
+  #acl           = "private" #DEPRECATED
   force_destroy =  true
 }
 ### Or use templates in ./s3-templates
