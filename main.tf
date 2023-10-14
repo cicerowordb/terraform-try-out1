@@ -1,4 +1,13 @@
 ### Provider configures the service we will access
+terraform {
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+      version = "5.21.0"
+    }
+  }
+}
+
 provider "aws" {
   region       = var.aws_region
   # access_key = "ACCESS_KEY"
