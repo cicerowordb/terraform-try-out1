@@ -8,7 +8,7 @@ provider "aws" {
 
 ### RDS Instance for Database
 resource "aws_db_instance" "rds_db_instance" {
-  # name                    = var.database_name
+  # name                    = var.database_name #DEPRECATED
   allocated_storage       = var.database_storage[0]
   max_allocated_storage   = var.database_storage[1]
   engine                  = "mysql"
@@ -47,7 +47,7 @@ resource "aws_network_interface" "ec2_private_ip" {
 
 ### Elastic IP to EC2 Instance
 resource "aws_eip" "ec2_elastic_ip" {
-  vpc           = true
+  # vpc           = true #DEPRECATED
   instance      = aws_instance.debian01.id
   tags = {
     Name        = "Debian01-EP-Cicerow"
