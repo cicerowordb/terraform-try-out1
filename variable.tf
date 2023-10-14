@@ -22,7 +22,7 @@ variable "ec2_instance" {
     default = ["t2.micro","t2.small","t2.medium"]
 }
 variable "bucket_name" {
-    default = "bucket-s3-with-html-files-to-deploy"
+    default = "bucket-s3-with-html-files-to-deploy-001100"
 }
 variable "resource_or_module_bucket" {
     default     = "resource"
