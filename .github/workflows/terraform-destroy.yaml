@@ -33,14 +33,14 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID:     "${{ secrets.ACCESS_KEY }}"
           AWS_SECRET_ACCESS_KEY: "${{ secrets.SECRET_KEY }}" 
-          AWS_SESSION_TOKEN:     "${{ secrets.ACCESS_TOKEN }}"
+          #AWS_SESSION_TOKEN:     "${{ secrets.ACCESS_TOKEN }}"
         run: cd ./repository-files/ && ls -la && ~/terraform init 
 
       - name: Terraform Plan
         env:
           AWS_ACCESS_KEY_ID:     "${{ secrets.ACCESS_KEY }}"
           AWS_SECRET_ACCESS_KEY: "${{ secrets.SECRET_KEY }}" 
-          AWS_SESSION_TOKEN:     "${{ secrets.ACCESS_TOKEN }}"
+          #AWS_SESSION_TOKEN:     "${{ secrets.ACCESS_TOKEN }}"
         run: cd ./repository-files/ && ~/terraform plan -destroy 
 
       - name: Wait Before Apply
@@ -50,7 +50,7 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID:     "${{ secrets.ACCESS_KEY }}"
           AWS_SECRET_ACCESS_KEY: "${{ secrets.SECRET_KEY }}" 
-          AWS_SESSION_TOKEN:     "${{ secrets.ACCESS_TOKEN }}"
+          #AWS_SESSION_TOKEN:     "${{ secrets.ACCESS_TOKEN }}"
         run: cd ./repository-files/ &&  ~/terraform apply -destroy -auto-approve 
 
       - name: Saving Backend TFState
